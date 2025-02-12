@@ -1,0 +1,12 @@
+name: Lint & Format
+
+on: [push]
+
+jobs:
+  lint-and-format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint & Format
+        run: pnpm lint && pnpm format --write
