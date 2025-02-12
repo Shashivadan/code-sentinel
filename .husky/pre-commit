@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-pnpm exec turbo format
-pnpm exec turbo lint
+pnpm run format
+pnpm run lint
