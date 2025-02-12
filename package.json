@@ -8,7 +8,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install",
     "clean": "git clean -xdf node_modules",
-    "clean:workspaces": "turbo run clean"
+    "clean:ws": "turbo run clean"
   },
   "devDependencies": {
     "prettier": "^3.5.0",
