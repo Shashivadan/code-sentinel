@@ -12,19 +12,6 @@ export function HeroGeometric({
   title1?: string;
   title2?: string;
 }) {
-  const fadeUpVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 1,
-        delay: 0.5 + i * 0.2,
-        ease: [0.25, 0.4, 0.25, 1],
-      },
-    }),
-  };
-
   return (
     <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl" />
@@ -79,10 +66,12 @@ export function HeroGeometric({
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
-            custom={1}
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
+            initial={{ opacity: 0, filter: "blur(12px)" }}
+            animate={{
+              opacity: 1,
+              filter: "blur(0px)",
+              transition: { duration: 0.8, ease: "easeOut" },
+            }}
           >
             <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
               <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
@@ -91,7 +80,7 @@ export function HeroGeometric({
               <br />
               <span
                 className={cn(
-                  "bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300  font-[family-name:var(--font-pacifico)]"
+                  "bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300  font-[family-name:var(--font-pacifico)]",
                 )}
               >
                 {title2}
@@ -100,28 +89,29 @@ export function HeroGeometric({
           </motion.div>
 
           <motion.div
-            custom={2}
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
+            initial={{ opacity: 0, filter: "blur(12px)" }}
+            animate={{
+              opacity: 1,
+              filter: "blur(0px)",
+              transition: { duration: 0.8, ease: "easeOut" },
+            }}
           >
-            <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
+            <p className="text-base sm:text-lg md:text-base text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
               Automated GitHub code review to enhance your development workflow
               and maintain high code standards.
             </p>
           </motion.div>
           <motion.div
-            custom={3}
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
+            initial={{ opacity: 0, filter: "blur(12px)" }}
+            animate={{
+              opacity: 1,
+              filter: "blur(0px)",
+              transition: { duration: 0.8, ease: "easeOut" },
+            }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Button
-              variant={"ghost"}
-              className="px-8 py-4  rounded-xl text-white text-sm font-semibold hover:bg-white/10 hover:text-white   bg-gradient-to-t from-zinc-900/50 via-zinc-800/50 to-zinc-700/50"
-            >
+            <Button variant={"gradient"} className="px-8 py-4  rounded-xl    ">
               Get Started
             </Button>
           </motion.div>
@@ -149,38 +139,40 @@ function ElegantShape({
   delay: number;
 }) {
   return (
-    <motion.div
-      initial={{ y: 0, rotate: rotate }}
-      animate={{
-        y: [0, -20, 0],
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <motion.div
+        initial={{ y: 0, rotate: rotate }}
+        animate={{
+          y: [0, -20, 0],
 
-        transition: {
-          y: {
-            duration: 6,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut",
-            delay,
+          transition: {
+            y: {
+              duration: 6,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut",
+              delay,
+            },
           },
-        },
-      }}
-      className={cn("absolute", className)}
-      style={{
-        width,
-        height,
-      }}
-    >
-      <div
-        className={cn(
-          "absolute inset-0 rounded-full",
-          "bg-gradient-to-r to-transparent",
-          gradient,
-          "backdrop-blur-[2px] border-2 border-white/[0.15]",
-          "shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]",
-          "after:absolute after:inset-0 after:rounded-full",
-          "after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]"
-        )}
-      />
+        }}
+        className={cn("absolute", className)}
+        style={{
+          width,
+          height,
+        }}
+      >
+        <div
+          className={cn(
+            "absolute inset-0 rounded-full",
+            "bg-gradient-to-r to-transparent",
+            gradient,
+            "backdrop-blur-[2px] border-2 border-white/[0.15]",
+            "shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]",
+            "after:absolute after:inset-0 after:rounded-full",
+            "after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]",
+          )}
+        />
+      </motion.div>
     </motion.div>
   );
 }

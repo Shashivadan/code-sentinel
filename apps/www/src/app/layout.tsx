@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import type { Metadata } from "next";
 import "@codesentinel/ui/globals.css";
 import { Pacifico } from "next/font/google";
+import { Footer } from "../components/landing";
 
 const pacifico = Pacifico({
   subsets: ["latin"],
@@ -34,6 +35,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${pacifico.variable} font-[family-name:var(--font-geist-sans)] antialiased`}
       >
         {children}
+        <Footer />
       </body>
     </html>
   );

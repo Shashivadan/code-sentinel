@@ -5,10 +5,9 @@ import tseslint from "typescript-eslint";
 import onlyWarn from "eslint-plugin-only-warn";
 
 /**
- * A shared ESLint configuration for the repository.
- *
- * @type {import("eslint").Linter.Config}
- * */
+ * Shared ESLint flat configuration for the repository
+ * @type {import("eslint").Linter.FlatConfig[]}
+ */
 export const config = [
   js.configs.recommended,
   eslintConfigPrettier,
@@ -23,10 +22,15 @@ export const config = [
   },
   {
     plugins: {
-      onlyWarn,
+      onlyWarn: onlyWarn,
     },
   },
   {
     ignores: ["dist/**"],
+    languageOptions: {
+      parserOptions: {
+        project: true,
+      },
+    },
   },
 ];

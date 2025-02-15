@@ -4,8 +4,11 @@
     "baseUrl": ".",
     "paths": {
       "@codesentinel/ui/*": ["./src/*"]
-    }
+    },
+    "allowJs": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler"
   },
-  "include": ["."],
+  "include": [".", "**/*.mjs", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "dist"]
 }

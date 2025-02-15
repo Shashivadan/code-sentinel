@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:14-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - ~/Desktop/postgres-databases/codesentienl-db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=codesentienl
+      - POSTGRES_DB=codesentienl_db
+# ------------------------------------------------------------------------------|
+# run : docker compose up -d                                                 |
+# ------------------------------------------------------------------------------|
+# connection string : postgresql://codesentienl:root@localhost:5432/codesentienl_db|
+# ------------------------------------------------------------------------------|

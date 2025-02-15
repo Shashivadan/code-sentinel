@@ -1,0 +1,45 @@
+{
+  "name": "@codesentinel/db",
+  "version": "1.0.0",
+  "description": "",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./src/index.ts"
+    },
+    "./schema": {
+      "types": "./dist/schemas/index.d.ts",
+      "default": "./src/schemas/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "push": "pnpm with-env drizzle-kit push",
+    "studio": "pnpm with-env drizzle-kit studio",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "with-env": "dotenv -e ../../.env --",
+    "migrate": "pnpm with-env drizzle-kit migrate",
+    "generate": "pnpm with-env drizzle-kit generate",
+    "seed": "dotenv -e ../../.env -- tsx ./src/seed.ts"
+  },
+  "devDependencies": {
+    "@codesentinel/eslint-config": "workspace:*",
+    "@codesentinel/typescript-config": "workspace:*",
+    "drizzle-kit": "^0.30.4",
+    "eslint": "^9.20.0",
+    "tsx": "^4.19.2",
+    "typescript": "5.7.3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@neondatabase/serverless": "^0.10.4",
+    "dotenv-cli": "^8.0.0",
+    "drizzle-orm": "^0.39.3",
+    "pg": "^8.13.3"
+  }
+}
