@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@codesentinel/db": "workspace:*",
     "@codesentinel/ui": "workspace:*",
     "autoprefixer": "^10.4.20",
+    "better-auth": "^1.1.18",
     "lucide-react": "^0.475.0",
     "motion": "^12.4.2",
     "next": "15.1.7",
