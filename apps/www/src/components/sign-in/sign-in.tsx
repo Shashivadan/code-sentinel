@@ -7,7 +7,7 @@ import { signIn } from "@/src/lib/auth-client";
 
 export function SignIn() {
   return (
-    <div className="w-full relative h-screen bg-gradient-to-tr from-zinc-950 to-zinc-950 ">
+    <div className="w-full relative h-screen  ">
       <div className="w-full h-full absolute inset-0">
         <motion.div
           initial={{ opacity: 0 }}
@@ -25,7 +25,7 @@ export function SignIn() {
             <ArrowLeft className="h-6 w-6 mr-2" />
             back
           </Button>
-          <div className="bg-zinc-950 rounded-lg shadow-lg p-8 w-96">
+          <div className=" rounded-lg shadow-lg p-8 w-96">
             <div className="space-y-4">
               <h2 className="text-2xl font-bold">Sign In</h2>
               <div className="space-x-2">
@@ -33,7 +33,7 @@ export function SignIn() {
                   onClick={async () => {
                     await signIn.social({
                       provider: "github",
-                      callbackURL: "/mail",
+                      callbackURL: "/dashboard",
                     });
                   }}
                   className="w-full p-6 rounded-xl opacity-50 hover:opacity-100 transition-all"
