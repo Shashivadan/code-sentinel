@@ -1,6 +1,8 @@
 {
   "extends": "@codesentinel/typescript-config/nextjs.json",
   "compilerOptions": {
+    "declaration": false,
+    "declarationMap": false,
     "paths": {
       "@/*": ["./*"],
       "@codesentinel/ui/*": ["../../packages/ui/src/*"]

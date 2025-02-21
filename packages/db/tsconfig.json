@@ -21,13 +21,15 @@
     "noEmit": false,
     "outDir": "dist"
   },
+
+  "include": ["src/**/*", "eslint.config.ts", "drizzle.config.ts"],
+
   "exclude": [
     "node_modules",
     "build",
     "dist",
     ".next",
     ".expo",
-    "drizzle.config.ts",
-    "eslint.config.ts"
+    "drizzle.config.ts"
   ]
 }

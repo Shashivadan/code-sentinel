@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import "@codesentinel/ui/globals.css";
 import { Pacifico } from "next/font/google";
 import { Footer } from "../components/landing";
+import { ThemeProvider } from "@/src/components/theme-provider";
+import { Navbar } from "../components";
 
 const pacifico = Pacifico({
   subsets: ["latin"],
@@ -23,7 +25,7 @@ export const metadata: Metadata = {
   title: "Code Sentinels",
   description:
     "AI code reviewer that helps developers improve their code quality and efficiency.",
-  metadataBase: new URL("https://codesentinals.example.com"),
+  metadataBase: new URL("https://codesentinals.lab-x.com"),
   applicationName: "Code Sentinels",
   authors: [{ name: "shashivadan" }],
   keywords: ["AI", "Code Review", "Developer Tools", "Coding Practice"],
@@ -51,7 +53,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://codesentinals.example.com",
+    url: "https://codesentinals.lab-x.xyz",
     siteName: "Code Sentinels",
     title: "Code Sentinels",
     description:
@@ -93,12 +95,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${pacifico.variable} font-[family-name:var(--font-geist-sans)] antialiased`}
       >
-        {children}
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          <div className=" mt-16">{children}</div>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

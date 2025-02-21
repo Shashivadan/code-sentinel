@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { cn } from "@codesentinel/ui/lib/utils";
 import { Button } from "@codesentinel/ui/components/button";
 import { ElegantShape } from "./elegant-shape";
+import Link from "next/link";
 
 export function HeroGeometric({
   title1 = "Elevate Your",
@@ -81,7 +82,7 @@ export function HeroGeometric({
               <br />
               <span
                 className={cn(
-                  "bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300  font-[family-name:var(--font-pacifico)]",
+                  "bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300  font-[family-name:var(--font-pacifico)]"
                 )}
               >
                 {title2}
@@ -112,9 +113,13 @@ export function HeroGeometric({
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Button variant={"gradient"} className="px-8 py-4  rounded-xl    ">
-              Get Started
-            </Button>
+            {/* <Button
+              variant={"gradient"}
+              className="px-8 py-4  rounded-xl "
+              asChild
+            >
+              <Link href="/sign-in">Get Started</Link>
+            </Button> */}
           </motion.div>
         </div>
       </div>

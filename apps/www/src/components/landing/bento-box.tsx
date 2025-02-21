@@ -15,7 +15,10 @@ export function BentoBox() {
     <div>
       <div className="grid grid-cols-1 gap-4 p-4 sm:gap-5 sm:p-5 md:grid-cols-3 md:grid-rows-3 md:p-12 bg-black text-white">
         {/* Feature Spotlight */}
-        <div className="group relative md:col-span-2 md:row-span-2 overflow-hidden rounded-2xl border-2 border-zinc-800 bg-zinc-950 p-6 sm:p-8 transition-all">
+        <div
+          id="#features"
+          className="group relative md:col-span-2 md:row-span-2 overflow-hidden rounded-2xl border-2 border-zinc-800 bg-zinc-950 p-6 sm:p-8 transition-all"
+        >
           <div className="relative z-10">
             <Shield className="mb-4 h-8 w-8 sm:h-12 sm:w-12 text-white" />
             <h3 className="mb-2 text-xl sm:text-2xl font-semibold">

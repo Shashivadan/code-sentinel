@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@better-auth/cli": "^1.1.18",
     "@codesentinel/db": "workspace:*",
     "@codesentinel/ui": "workspace:*",
     "autoprefixer": "^10.4.20",
