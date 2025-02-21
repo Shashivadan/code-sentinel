@@ -7,6 +7,10 @@
       "types": "./dist/index.d.ts",
       "default": "./src/index.ts"
     },
+    "./client": {
+      "types": "./dist/db.d.ts",
+      "default": "./src/db.ts"
+    },
     "./schema": {
       "types": "./dist/schemas/index.d.ts",
       "default": "./src/schemas/index.ts"
